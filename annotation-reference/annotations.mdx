@@ -1,0 +1,147 @@
+---
+title: "Annotations"
+description: "Learn about the various annotations that can be used in Blender to apply berhaviors in Betta"
+---
+
+Betta annotations are applied in Blender when creating assets, they provide the Betta platform with a hint about the intent of a mesh or material, they can also be used to build collective behaviors, such as changing the alpha of a group meshes when an avatar intersects with BoundBox of a parent mesh.
+
+## General
+
+### b_killbox
+
+This annotation will mark the mesh as a killbox and configure an action so when an avatar intersects with the mesh, they are teleported to a spawnpoint.
+
+### b_spawn
+
+This annotation will index the position of the mesh, and use it to place avatars when they spawn.
+
+## Physics
+
+Physics are complex, and there are a couple of ways to achive adding physics in Betta, you can use any of the built in aliases to quick apply physics to a mesh, or you can fine tune the values, you can even apply an alias first, and then add override any indervidual values with a targeted annotation.
+
+#### Floors & Walls
+
+When building a floor or a wall, you will need to set the following three values:
+| Property | Value |
+| ----------- | ------ |
+| mass | 0 |
+| motion | STATIC |
+| shape | MESH/BOX |
+
+The core physics properties are:
+| Property | Type |
+| ----------- | ------ |
+| mass | number |
+| friction | number |
+| restitution | number |
+| motion | STATIC/DYNAMIC/ANIMATED |
+| shape | MESH/BOX |
+
+### b_physics_collider
+
+This annotation will add a collider to the mesh, using it will apply the following default values.
+
+| Property    | Value  |
+| ----------- | ------ |
+| mass        | 0      |
+| friction    | 0      |
+| restitution | 1      |
+| motion      | STATIC |
+| shape       | MESH   |
+
+### b_physics_mass
+
+This annotation will apply a mass value to a physics collider
+
+### b_physics_friction
+
+This annotation will apply a friction value to a physics collider
+
+### b_physics_restitution
+
+This annotation will apply a restitution(bounciness) value to a physics collider
+
+### b_physics_shape
+
+This annotation will apply a shape to a collider, the value should be either MESH or BOX
+
+### b_physics_motion
+
+This annotation will apply a motion value to a collider, essentially does the imposter move, the value should be either STATIC or DYNAMIC
+
+## Crowds
+
+### b_crowd_poi
+
+This annotation will add a point of interest for a crowd agent
+
+### b_crowd_spawn
+
+This annotation will add a spawn point for a crowd agent
+
+### b_crowd_navmesh
+
+This annotation will use the mesh in a bigger merge mesh to calculate a navmesh, usually you would add the floor and any meshes that should be avoided.
+
+## Shadows
+
+### b_receive_shadows
+
+This annotation will mark the mesh for receiving shadow calculations
+
+### b_cast_shadows
+
+This annotation will mark the mesh as a shadow caster
+
+## Behaviors
+
+Behaviors are special engine modifiers to change the behavior of betta.
+
+### b_alpha_root
+
+This annotation will mark the mesh for the Child Alpha Transparancy behavior, the mesh bounding box data is used to test for intersection with the avatar. When an avatar is inside the mesh, any child meshes with the annotation **\*b_alpha_apply** the value is used as the alpha value for child mesh.\*
+
+@DaveMc Side note, this behavior does more right now as you can see, we should prob componentise it out.. it also:
+Pauses the auto zoom, Stops any current animations, lerps the camera beta value to 1.376141842151481 at a rate of 0.002 and lerps the radius to 4.7 at a rate of 0.002, and then reverses those and enables auto zoom when you exit.
+
+## Internal Aliases
+
+These aliases apply a collection of annotations, they are currently built into the engine but will be moved into the manifest language.
+
+### b_alias_ground
+
+This annotation will mark the mesh as a shadow caster
+
+### b_alias_physics
+
+This annotation will mark the mesh as a shadow caster
+
+## Content
+
+### b_content_receiver
+
+This annotation will mark the mesh as a content target, this could be consumed via users, or via someone else?
+
+### b_content_receiver_orientation
+
+This annotation will mark the content orientation or the receiver
+
+1 = landscape
+
+0 = portrait
+
+### b_content_receiver_height
+
+This annotation will provide a hint as to the height of the texture required for this receiver in pixels
+
+### b_content_receiver_width
+
+This annotation will provide a hint as to the width of the texture required for this receiver in pixels
+
+### b_content_receiver_type
+
+This annotation will provide a hint as to the purpose of the receiver, this doesn’t and won’t nessasarily be honoured, and it more of a suggestion.
+
+Values:
+
+video

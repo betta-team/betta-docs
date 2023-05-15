@@ -69,6 +69,18 @@ This annotation will apply a shape to a collider, the value should be either MES
 
 This annotation will apply a motion value to a collider, essentially does the imposter move, the value should be either STATIC or DYNAMIC
 
+## Sound
+
+### b_sound_ambient
+
+This annotation will add a ambient sound emmiter, the value can be used to select different ambient sounds.
+
+## Interactions
+
+### b_interaction_modal
+
+This annotation will make the mesh clickable, the cursor will become a pointer when hovering over the mesh, clicking will display a modal
+
 ## Crowds
 
 ### b_crowd_poi
@@ -126,9 +138,9 @@ This annotation will mark the mesh as a content target, this could be consumed v
 
 This annotation will mark the content orientation or the receiver
 
-1 = landscape
-
-0 = portrait
+| Property                       | Value              |
+| ------------------------------ | ------------------ |
+| b_content_receiver_orientation | LANDSCAPE/PORTRAIT |
 
 ### b_content_receiver_height
 
@@ -142,6 +154,6 @@ This annotation will provide a hint as to the width of the texture required for 
 
 This annotation will provide a hint as to the purpose of the receiver, this doesn’t and won’t nessasarily be honoured, and it more of a suggestion.
 
-Values:
-
-video
+| Property                | Value       |
+| ----------------------- | ----------- |
+| b_content_receiver_type | VIDEO/IMAGE |

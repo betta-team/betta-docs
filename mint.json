@@ -41,15 +41,6 @@
       "pages": [
         "annotation-reference/annotations"
       ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "annotation-reference/endpoint/get",
-        "annotation-reference/endpoint/create",
-        "annotation-reference/endpoint/update",
-        "annotation-reference/endpoint/delete"
-      ]
     }
   ],
   "footerSocials": {

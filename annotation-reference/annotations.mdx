@@ -119,9 +119,6 @@ Behaviors are special engine modifiers to change the behavior of betta.
 
 This annotation will mark the mesh for the Child Alpha Transparancy behavior, the mesh bounding box data is used to test for intersection with the avatar. When an avatar is inside the mesh, any child meshes with the annotation **\*b_alpha_apply** the value is used as the alpha value for child mesh.\*
 
-@DaveMc Side note, this behavior does more right now as you can see, we should prob componentise it out.. it also:
-Pauses the auto zoom, Stops any current animations, lerps the camera beta value to 1.376141842151481 at a rate of 0.002 and lerps the radius to 4.7 at a rate of 0.002, and then reverses those and enables auto zoom when you exit.
-
 ## Internal Aliases
 
 These aliases apply a collection of annotations, they are currently built into the engine but will be moved into the manifest language.

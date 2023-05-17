@@ -95,6 +95,20 @@ This annotation will add a spawn point for a crowd agent
 
 This annotation will use the mesh in a bigger merge mesh to calculate a navmesh, usually you would add the floor and any meshes that should be avoided.
 
+## Seats
+
+### b_seat
+
+This annotation will mark the mesh as a seat, this annotation must be accompanied by a `b_seat_start` annotation and a `b_seat_end`
+
+### b_seat_start
+
+This annotation will mark a transform as the starting position to sitdown on a seat
+
+### b_seat_end
+
+This annotation will mark a transform as the finishing position
+
 ## Shadows
 
 ### b_receive_shadows
@@ -107,9 +121,20 @@ This annotation will mark the mesh as a shadow caster
 
 ## Camera
 
-### b_camera_zoom
+### b_camera_alpha
 
-This annotation will zoom the camera from a standard position, to more of a follow position as long as the avatar intersects with the bounding box of the mesh
+This annotation will change the alpha position of the camera, accepted values are:
+
+- "-90"
+- "+90"
+
+### b_camera_beta
+
+This annotation will adjust the beta value of the follow camera, 1 is the default, 1.45 is closer being parallel with the avatar
+
+### b_camera_radius
+
+This annotation will change the radius, or distance of the camera from the avatar, the default is 10, 5 would be closer.
 
 ## Behaviors
 
